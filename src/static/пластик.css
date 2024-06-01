@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #000000;
+  }                                                                                                                                                                              
+  header {
+    background-color: #003b08;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+  nav {
+    background-color: #003b08;
+    padding: 10px 0;
+    text-align: center;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  #im1 {
+    width: 400px;
+    height: 300px;
+  }
+  #im2 {
+    width: 400px;
+    height: 300px;
+  }
+  #im3 {
+    width: 400px;
+    height: 300px;
+  }
