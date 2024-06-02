@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff; /* Цвет фона */
+    font-family: Arial, sans-serif;
+}
+
+.error-container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 5em;
+    color: #003b08; /* Цвет заголовка */
+}
+
+p {
+    font-size: 1.5em;
+    color: #003b08; /* Цвет текста */
+}
+
+@keyframes shake {
+    0% { transform: translateX(900px) translateY(0px); }
+    50% { transform: translateX(0px) translateY(0px); }
+    100% { transform: translateX(-900px) translateY(0px); }
+}
+
+h1 {
+    animation: shake 4s infinite;
+}
+.btn {
+    display: inline-block;
+    margin-left: -10%;
+    background: #003b08; 
+    color: white; 
+    padding: 1em 2rem; 
+    text-decoration: none; 
+    border-radius: 11px; 
+    margin-top: 30%;
+   }

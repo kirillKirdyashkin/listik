@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_login import LoginManager, login_user, current_user, logout_user
-from werkzeug.security import check_password_hash, generate_password_hash
+from flask import Flask, render_template, request, redirect, url_for, flash # type: ignore
+from flask_login import LoginManager, login_user, current_user, logout_user # type: ignore
+from werkzeug.security import check_password_hash, generate_password_hash # type: ignore
 from models import User, db
+
+from werkzeug import exceptions # type: ignore
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -85,6 +87,92 @@ def water():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.errorhandler(400)
+def page_not_found(e):
+    return render_template('400.html'), 400
+
+@app.errorhandler(401)
+def page_not_found(e):
+    return render_template('401.html'), 401
+
+
+@app.errorhandler(403)
+def page_not_found(e):
+    return render_template('403.html'), 403
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(405)
+def page_not_found(e):
+    return render_template('405.html'), 405
+
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('500.html'), 500
+
+@app.errorhandler(501)
+def page_not_found(e):
+    return render_template('501.html'), 501
+
+@app.errorhandler(502)
+def page_not_found(e):
+    return render_template('502.html'), 502
+
+@app.errorhandler(503)
+def page_not_found(e):
+    return render_template('503.html'), 503
+
+class Except402 (exceptions.HTTPException):
+    code = 402
+    description = 'Что то 402!'
+
+def handle_402(e):
+    return render_template('402.html')
+
+app.register_error_handler(Except402, handle_402)
+
+@app.route('/400')
+def er400():
+    return render_template('400.html')
+
+@app.route('/401')
+def er401():
+    return render_template('401.html')
+
+@app.route('/402')
+def er402():
+    return render_template('402.html')
+
+@app.route('/403')
+def er403():
+    return render_template('403.html')
+
+@app.route('/404')
+def er404():
+    return render_template('404.html')
+
+@app.route('/405')
+def er405():
+    return render_template('405.html')
+
+@app.route('/500')
+def er500():
+    return render_template('500.html')
+
+@app.route('/501')
+def er501():
+    return render_template('501.html')
+
+@app.route('/502')
+def er502():
+    return render_template('502.html')
+
+@app.route('/503')
+def er503():
+    return render_template('503.html')
 
 if __name__ == '__main__':
     with app.app_context():
